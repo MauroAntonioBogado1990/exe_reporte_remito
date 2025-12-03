@@ -40,9 +40,9 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <t t-foreach="o.move_lines" t-as="l">
+                  <t t-foreach="o.move_ids_without_package" t-as="l">
                     <tr>
-                      <td style="padding:6px;border:1px solid #000;"><t t-esc="loop.index"/></td>
+                      <!-- <td style="padding:6px;border:1px solid #000;"><t t-esc="loop.index"/></td> -->
                       <td style="padding:6px;border:1px solid #000;"><t t-esc="l.product_uom_qty or l.product_qty or 0"/></td>
                       <td style="padding:6px;border:1px solid #000;"><t t-esc="l.product_id.default_code or ''"/></td>
                       <td style="padding:6px;border:1px solid #000;"><t t-esc="l.product_id.display_name or l.name or ''"/></td>
