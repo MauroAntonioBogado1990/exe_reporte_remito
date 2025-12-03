@@ -24,7 +24,26 @@
                   </div>
                 </div>
               </div>
-
+                 <table style="width:100%; font-size:12px;">
+                    <tr>
+                        <td style="width:50%;"><strong>CLIENTE:</strong> <t t-esc="o.partner_id.name or ''"/></td>
+                        <!-- <td style="width:50%;"><strong>IVA:</strong> <t t-esc="o.partner_id.tax_id.name or ''"/></td> -->
+                        <td style="width:50%;"><strong>IVA:</strong> <t t-esc="o.partner_id.name or ''"/></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><strong>CONTACTO:</strong> <t t-esc="o.partner_id.vat or ''"/></td>
+                        <td><strong>CUIT:</strong> <t t-esc="o.partner_id.vat or ''"/></td>
+                    </tr>
+                    <tr>
+                        <td><strong>DIRECCIÓN:</strong> <t t-esc="o.partner_id.street or ''"/></td>
+                        <td><strong>O/C:</strong> <t t-esc="o.origin or ''"/></td>
+                    </tr>
+                    <tr>
+                        <td><strong>LOCALIDAD:</strong> <t t-esc="o.partner_id.city or ''"/></td>
+                        <td><strong>PEDIDO:</strong> <t t-esc="o.name or ''"/></td>
+                    </tr>
+                    </table>
               <div style="margin-bottom:6px;">
                 <div>Cliente: <t t-esc="o.partner_id.name or ''"/></div>
                 <div>Dirección: <t t-esc="o.partner_id.contact_address or o.partner_id.street or ''"/></div>
