@@ -44,33 +44,32 @@
                         <td><strong>PEDIDO:</strong> <t t-esc="o.name or ''"/></td>
                     </tr>
                     </table>
-              <div style="margin-bottom:6px;">
-                <div>Cliente: <t t-esc="o.partner_id.name or ''"/></div>
-                <div>Dirección: <t t-esc="o.partner_id.contact_address or o.partner_id.street or ''"/></div>
-              </div>
+              
 
-              <table style="width:100%;border-collapse:collapse;border:1px solid #000;">
+              <table style="width:100%;border-collapse:collapse;">
                 <thead>
                   <tr style="background:#eee;">
-                    <th style="padding:6px;border:1px solid #000;">ITEM</th>
-                    <th style="padding:6px;border:1px solid #000;">CANTIDAD</th>
-                    <th style="padding:6px;border:1px solid #000;">CÓDIGO</th>
-                    <th style="padding:6px;border:1px solid #000;">DESCRIPCIÓN</th>
+                    <th style="padding:6px;">ITEM</th>
+                    <th style="padding:6px;">CANTIDAD</th>
+                    <th style="padding:6px;">CÓDIGO</th>
+                    <th style="padding:6px;">DESCRIPCIÓN</th>
                   </tr>
                 </thead>
                 <tbody>
                   <t t-foreach="o.move_ids_without_package" t-as="l">
                     <tr>
                       <!-- <td style="padding:6px;border:1px solid #000;"><t t-esc="loop.index"/></td> -->
-                      <td style="padding:6px;border:1px solid #000;"><t t-esc="l.product_uom_qty or l.product_qty or 0"/></td>
-                      <td style="padding:6px;border:1px solid #000;"><t t-esc="l.product_id.default_code or ''"/></td>
-                      <td style="padding:6px;border:1px solid #000;"><t t-esc="l.product_id.display_name or l.name or ''"/></td>
+                      <td ><t t-esc="l.product_id.display_name or l.name or ''"/></td>
+                      <td><t t-esc="l.product_uom_qty or l.product_qty or 0"/></td>
+                      <td ><t t-esc="l.product_id.default_code or ''"/></td>
+                      <td ><t t-esc="l.product_id.description_pickingin or l.product_id.description_pickingin or ''"/></td>
+                      
                     </tr>
                   </t>
                 </tbody>
               </table>
 
-              <div style="margin-top:12px;">
+              <div style="margin-top:12px;" class="footer">
                 <table style="width:100%;">
                   <tr>
                     <td style="width:70%;vertical-align:top;border:1px solid #000;padding:8px;">
