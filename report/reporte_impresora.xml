@@ -71,6 +71,9 @@
                       </tr>
                     </table>
             </div>
+            <br/>
+              <br/>
+              
                  <table style="width:100%; font-size:12px;">
                     <tr>
                         <td style="width:50%;"><strong>CLIENTE:</strong> <t t-esc="o.partner_id.name or ''"/></td>
@@ -91,7 +94,8 @@
                         <td><strong>PEDIDO:</strong> <t t-esc="o.name or ''"/></td>
                     </tr>
                     </table>
-              
+              <br/>
+              <br/>
 
               <table style="width:100%;border-collapse:collapse;">
                 <thead>
