@@ -20,7 +20,7 @@
                       <tr>
                         <!-- Left: company info -->
                         <td style="width:48%; vertical-align:top; padding:15px; border-right:1px solid #000;">
-                          <div style="text-align:left;">
+                          <div style="text-align:center;">
                             <div style="margin-bottom:10px;">
                               <t t-if="o.company_id.logo">
                                 <img t-att-src="'data:image/png;base64,%s' % o.company_id.logo" style="max-height:80px;"/>
@@ -113,7 +113,8 @@
                       <td ><t t-esc="l.product_id.display_name or l.name or ''"/></td>
                       <td><t t-esc="l.product_uom_qty or l.product_qty or 0"/></td>
                       <td ><t t-esc="l.product_id.default_code or ''"/></td>
-                      <td ><t t-esc="l.product_id.description_pickingin or l.product_id.description_pickingin or ''"/></td>
+                      <!-- <td ><t t-esc="l.product_id.description_picking or l.product_id.description_picking or ''"/></td> -->
+                      <td ><t t-esc="l.description_picking or l.description_picking or ''"/></td>
                       
                     </tr>
                   </t>
