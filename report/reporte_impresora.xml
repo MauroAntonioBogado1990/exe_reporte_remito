@@ -163,7 +163,7 @@
     </template>
 
     <!-- Another report action -->
-    <record id="action_funeraria_invoice_report" model="ir.actions.report">
+    <!--<record id="action_funeraria_invoice_report" model="ir.actions.report">
       <field name="name">Remito</field>
       <field name="model">stock.picking</field>
       <field name="report_type">qweb-pdf</field>
@@ -171,7 +171,7 @@
       <field name="report_file">exe_reporte_remito.reporte_impreso</field>
       <field name="binding_model_id" ref="stock.model_stock_picking"/>
       <field name="binding_type">report</field>
-    </record>
+    </record>-->
 
   </data>
 </odoo>
