@@ -8,7 +8,7 @@
         <t t-foreach="docs" t-as="o">
           <main>
           <div style="font-size:10px;">
-                <div style="border: 1px solid #000; position: relative; margin-bottom: 10px; font-family: Helvetica, Arial, sans-serif; height: 230px;">
+                <div style="border: 1px solid #000; position: relative; margin-bottom: 10px; font-family: Helvetica, Arial, sans-serif; ">
                     
                     <!-- <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 45px; border-bottom: 1px solid #000; border-left: 1px solid #000; border-right: 1px solid #000; background-color: #fff; text-align: center; z-index: 10;">
                         <div style="font-size: 26px; font-weight: bold; line-height: 28px;">R</div>
@@ -26,7 +26,7 @@
                                 <img t-att-src="'data:image/png;base64,%s' % o.company_id.logo" style="max-height:80px;"/>
                               </t>
                             </div>
-                            <div style="font-size:10px; line-height:1.3;">
+                            <div style="font-size:10px; line-height:1.3;text-align:center;">
                               <div style="text-transform: uppercase; font-weight: bold; margin-bottom:5px; font-size:12px;"><t t-esc="o.company_id.name"/></div>
                               <div><t t-esc="o.company_id.street or ''"/></div>
                               <div>
@@ -116,7 +116,8 @@
                 </tbody>
               </table>
 
-              <div style="margin-top:12px;" class="footer">
+              <div style="margin-top:20px;" class="footer">
+              <!-- <div style="margin-top:20px; page-break-inside: avoid;"> -->
                 <table style="width:100%;">
                   <tr>
                     <td style="width:70%;vertical-align:top;border:1px solid #000;padding:8px;">
