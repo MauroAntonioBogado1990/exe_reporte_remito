@@ -15,7 +15,7 @@
                 
                 <div style="position: relative; height: 0.8cm;">
                     <span style="position: absolute; left: 2.5cm; width: 9cm;" t-field="o.partner_id.name"/>
-                    <span style="position: absolute; left: 14.0cm;" t-esc="o.partner_id.l10n_ar_afip_responsibility_type_id.name or o.partner_id.property_account_position_id.name or ''"/>
+                    <span style="position: absolute; left: 14.0cm;" t-git esc="o.partner_id.l10n_ar_afip_responsibility_type_id.name or o.partner_id.property_account_position_id.name or ''"/>
                 </div>
 
                 <div style="position: relative; height: 0.8cm;">
