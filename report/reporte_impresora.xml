@@ -2,149 +2,79 @@
 <odoo>
   <data>
 
-    <!-- Main report template for stock.picking -->
     <template id="reporte_impreso" name="exe_reporte_remito.reporte_impreso">
       <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="o">
-          <main>
-          <div style="font-size:10px;">
-                <div style="border: 1px solid #000; position: relative; margin-bottom: 10px; font-family: Helvetica, Arial, sans-serif; ">
-                    
-                    <!-- <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 45px; border-bottom: 1px solid #000; border-left: 1px solid #000; border-right: 1px solid #000; background-color: #fff; text-align: center; z-index: 10;">
-                        <div style="font-size: 26px; font-weight: bold; line-height: 28px;">R</div>
-                        <div style="font-size: 8px;">Código Nº 91</div>
-                    </div> -->
+          <div class="page" style="position: relative; font-family: Helvetica, Arial, sans-serif; font-size: 12px; width: 100%; height: 100%;">
 
-                    <!-- Use a 3-column table for reliable PDF layout: company | R box | remito info -->
-                    <table style="width:100%; border-collapse:collapse; height:100%;">
-                      <tr>
-                        <!-- Left: company info -->
-                        <td style="width:48%; vertical-align:top; padding:15px; border-right:1px solid #000;">
-                          <div style="text-align:center;">
-                            <div style="margin-bottom:10px;">
-                              <t t-if="o.company_id.logo">
-                                <img t-att-src="'data:image/png;base64,%s' % o.company_id.logo" style="max-height:80px;"/>
-                              </t>
-                            </div>
-                            <div style="font-size:10px; line-height:1.3;text-align:center;">
-                              <div style="text-transform: uppercase; font-weight: bold; margin-bottom:5px; font-size:12px;"><t t-esc="o.company_id.name"/></div>
-                              <div><t t-esc="o.company_id.street or ''"/></div>
-                              <div>
-                                <t t-esc="o.company_id.city or ''"/>
-                                <t t-if="o.company_id.state_id"> - <t t-esc="o.company_id.state_id.name"/></t>
-                                <t t-if="o.company_id.zip"> (<t t-esc="o.company_id.zip"/>)</t>
-                              </div>
-                              <div style="margin-top:15px; font-weight:bold; font-size:10px; text-align:center;">IVA RESPONSABLE INSCRIPTO</div>
-                            </div>
-                          </div>
-                        </td>
-
-                        <!-- Center: narrow column with the 'R' box -->
-                        <td style="width:4%; vertical-align:top; padding:0; text-align:center;">
-                          <div style="display:inline-block; width:56px; height:70px; border:1px solid #000; box-sizing:border-box;">
-                            <div style="font-size:26px; font-weight:bold; line-height:32px;">R</div>
-                            <div style="font-size:8px;">Código Nº 91</div>
-                          </div>
-                        </td>
-
-                        <!-- Right: remito title and company small data -->
-                        <td style="width:48%; vertical-align:top; padding:15px 15px 10px 25px;">
-                          <div>
-                            <div style="font-size:24px; font-weight:bold; letter-spacing:1px; text-align:left;">REMITO</div>
-                            <div style="font-size:9px; font-weight:bold; margin-bottom:20px; text-align:left;">DOCUMENTO NO VALIDO COMO FACTURA</div>
-
-                            <div style="font-size:14px; margin-bottom:8px;">
-                              <strong>Nº </strong> <span t-esc="o.name" style="font-weight: normal;"/>
-                            </div>
-                            <div style="font-size:14px;">
-                              <strong>FECHA: </strong>
-                              <span t-esc="o.scheduled_date" t-options='{"widget": "date"}'/>
-                            </div>
-
-                            <div style="font-size:10px; line-height:1.5; margin-top:15px;">
-                              <div><strong>C.U.I.T.: </strong> <span t-esc="o.company_id.vat or ''"/></div>
-                              <div><strong>Ingresos Brutos: </strong> <span t-esc="o.company_id.l10n_ar_gross_income_number or o.company_id.vat or ''"/></div>
-                              <div><strong>Inicio de Actividades: </strong> <span t-esc="o.company_id.l10n_ar_afip_start_date or ''"/></div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </table>
+            <div style="position: absolute; top: 3.5cm; left: 14.5cm; width: 4cm; text-align: left;">
+                <span t-field="o.scheduled_date" t-options='{"widget": "date"}'/>
             </div>
-            <br/>
-              <br/>
-              
-                 <table style="width:100%; font-size:12px;">
-                    <tr>
-                        <td style="width:50%;"><strong>CLIENTE:</strong> <t t-esc="o.partner_id.name or ''"/></td>
-                        <!-- <td style="width:50%;"><strong>IVA:</strong> <t t-esc="o.partner_id.tax_id.name or ''"/></td> -->
-                        <td style="width:50%;"><strong>IVA:</strong> <t t-esc="o.partner_id.name or ''"/></td>
-                        
-                    </tr>
-                    <tr>
-                        <td><strong>CONTACTO:</strong> <t t-esc="o.partner_id.vat or ''"/></td>
-                        <td><strong>CUIT:</strong> <t t-esc="o.partner_id.vat or ''"/></td>
-                    </tr>
-                    <tr>
-                        <td><strong>DIRECCIÓN:</strong> <t t-esc="o.partner_id.street or ''"/></td>
-                        <td><strong>O/C:</strong> <t t-esc="o.origin or ''"/></td>
-                    </tr>
-                    <tr>
-                        <td><strong>LOCALIDAD:</strong> <t t-esc="o.partner_id.city or ''"/></td>
-                        <td><strong>PEDIDO:</strong> <t t-esc="o.name or ''"/></td>
-                    </tr>
-                    </table>
-              <br/>
-              <br/>
 
-              <table style="width:100%;border-collapse:collapse;">
-                <thead>
-                  <tr style="background:#eee;">
-                    <th style="padding:6px;">ITEM</th>
-                    <th style="padding:6px;">CANTIDAD</th>
-                    <th style="padding:6px;">CÓDIGO</th>
-                    <th style="padding:6px;">DESCRIPCIÓN</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <t t-foreach="o.move_ids_without_package" t-as="l">
-                    <tr>
-                      <!-- <td style="padding:6px;border:1px solid #000;"><t t-esc="loop.index"/></td> -->
-                      <td ><t t-esc="l.product_id.display_name or l.name or ''"/></td>
-                      <td><t t-esc="l.product_uom_qty or l.product_qty or 0"/></td>
-                      <td ><t t-esc="l.product_id.default_code or ''"/></td>
-                      <!-- <td ><t t-esc="l.product_id.description_picking or l.product_id.description_picking or ''"/></td> -->
-                      <td ><t t-esc="l.description_picking or l.description_picking or ''"/></td>
-                      
-                    </tr>
-                  </t>
-                </tbody>
-              </table>
+            <div style="position: absolute; top: 5.8cm; left: 0; width: 100%;">
+                
+                <div style="position: relative; height: 0.8cm;">
+                    <span style="position: absolute; left: 2.5cm; width: 9cm;" t-field="o.partner_id.name"/>
+                    <span style="position: absolute; left: 14.0cm;" t-esc="o.partner_id.l10n_ar_afip_responsibility_type_id.name or o.partner_id.property_account_position_id.name or ''"/>
+                </div>
 
-              <div style="margin-top:20px;" class="footer">
-              <!-- <div style="margin-top:20px; page-break-inside: avoid;"> -->
-                <table style="width:100%;">
-                  <tr>
-                    <td style="width:70%;vertical-align:top;border:1px solid #000;padding:8px;">
-                      OBSERVACIONES:
-                      <div style="min-height:40px;"><t t-esc="o.note or ''"/></div>
-                    </td>
-                    <td style="width:30%;vertical-align:top;border:1px solid #000;padding:8px;text-align:center;">
-                      RECIBÍ CONFORME<br/><br/>
-                      ________________________________<br/>Firma y Aclaración
-                    </td>
-                  </tr>
+                <div style="position: relative; height: 0.8cm;">
+                     <span style="position: absolute; left: 2.5cm; width: 9cm;" t-esc="o.partner_id.name"/>
+                    <span style="position: absolute; left: 14.0cm;" t-field="o.partner_id.vat"/>
+                </div>
+
+                <div style="position: relative; height: 0.8cm;">
+                    <span style="position: absolute; left: 2.5cm; width: 9cm;" t-field="o.partner_id.street"/>
+                    <span style="position: absolute; left: 14.0cm;" t-field="o.origin"/>
+                </div>
+
+                <div style="position: relative; height: 0.8cm;">
+                    <span style="position: absolute; left: 2.5cm; width: 9cm;">
+                        <t t-esc="o.partner_id.city"/> 
+                        <t t-if="o.partner_id.state_id"> (<t t-esc="o.partner_id.state_id.name"/>)</t>
+                    </span>
+                    <span style="position: absolute; left: 14.0cm;" t-field="o.name"/>
+                </div>
+            </div>
+
+            <div style="position: absolute; top: 10.5cm; left: 0; width: 100%;">
+                <table style="width: 100%; border-collapse: collapse; border: none;">
+                    <tbody>
+                        <t t-foreach="o.move_ids_without_package" t-as="l">
+                            <tr style="height: 0.6cm; vertical-align: top;"> 
+                                
+                                <td style="width: 5%; text-align: center; padding-left: 5px;">
+                                    <span style="color: white;">.</span> </td>
+
+                                <td style="width: 10%; text-align: center;">
+                                    <span t-esc="l.product_uom_qty" t-options='{"widget": "float", "precision": 0}'/>
+                                </td>
+
+                                <td style="width: 15%; padding-left: 5px;">
+                                    <span t-field="l.product_id.default_code"/>
+                                </td>
+
+                                <td style="width: 70%; padding-left: 5px;">
+                                    <span t-field="l.product_id.name"/>
+                                    </td>
+
+                            </tr>
+                        </t>
+                    </tbody>
                 </table>
-              </div>
             </div>
-          </main>
+
+            <div style="position: absolute; top: 24cm; left: 1cm; width: 12cm;">
+                <span t-field="o.note"/>
+            </div>
+
+          </div>
         </t>
       </t>
     </template>
 
-    <!-- Report action -->
     <record id="action_report_remito" model="ir.actions.report">
-      <field name="name">Remito</field>
+      <field name="name">Remito Preimpreso</field>
       <field name="model">stock.picking</field>
       <field name="report_type">qweb-pdf</field>
       <field name="report_name">exe_reporte_remito.reporte_impreso</field>
@@ -152,26 +82,6 @@
       <field name="binding_model_id" ref="stock.model_stock_picking"/>
       <field name="binding_type">report</field>
     </record>
-
-    <!-- Payment group template -->
-    <template id="report_payment_group">
-      <t t-call="web.html_container">
-        <t t-foreach="docs" t-as="o">
-          <t t-call="exe_reporte_remito.reporte_impreso" t-lang="o.partner_id.lang"/>
-        </t>
-      </t>
-    </template>
-
-    <!-- Another report action -->
-    <!--<record id="action_funeraria_invoice_report" model="ir.actions.report">
-      <field name="name">Remito</field>
-      <field name="model">stock.picking</field>
-      <field name="report_type">qweb-pdf</field>
-      <field name="report_name">exe_reporte_remito.reporte_impreso</field>
-      <field name="report_file">exe_reporte_remito.reporte_impreso</field>
-      <field name="binding_model_id" ref="stock.model_stock_picking"/>
-      <field name="binding_type">report</field>
-    </record>-->
 
   </data>
 </odoo>
