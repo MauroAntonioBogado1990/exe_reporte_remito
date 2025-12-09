@@ -12,33 +12,43 @@
             </div> 
             
 
-            <div style="position: absolute; top: 5.8cm; left: 0; width: 100%;">
+            <!-- <div style="position: absolute; top: 5.8cm; left: 0; width: 100%;"> -->
+            <div style="position: absolute; top: 6.8cm; left: 0; width: 100%;">
                 
                 <div style="position: relative; height: 0.8cm;">
-                    <span style="position: absolute; left: 2.5cm; width: 9cm;" t-field="o.partner_id.name"/>
-                    <span style="position: absolute; left: 14.0cm;" t-esc="o.partner_id.l10n_ar_afip_responsibility_type_id.name or o.partner_id.property_account_position_id.name or ''"/>
+                    <span style="position: absolute; left: 4.5cm; width: 9cm;" t-field="o.partner_id.name"/>
+                    <!-- <span style="position: absolute; left: 2.5cm; width: 9cm;" t-field="o.partner_id.name"/> -->
+                    <!-- <span style="position: absolute; left: 14.0cm;" t-esc="o.partner_id.l10n_ar_afip_responsibility_type_id.name or o.partner_id.property_account_position_id.name or ''"/> -->
+                    <span style="position: absolute; left: 15.5cm;" t-esc="o.partner_id.l10n_ar_afip_responsibility_type_id.name or o.partner_id.property_account_position_id.name or ''"/>
                 </div>
 
                 <div style="position: relative; height: 0.8cm;">
-                     <span style="position: absolute; left: 2.5cm; width: 9cm;" t-esc="o.partner_id.name"/>
-                    <span style="position: absolute; left: 14.0cm;" t-field="o.partner_id.vat"/>
+                    <span style="position: absolute; left: 4.5cm; width: 9cm;" t-esc="o.partner_id.phone"/>
+                     <!-- <span style="position: absolute; left: 2.5cm; width: 9cm;" t-esc="o.partner_id.phone"/> -->
+                    <!-- <span style="position: absolute; left: 14.0cm;" t-field="o.partner_id.vat"/> -->
+                    <span style="position: absolute; left: 15.5cm;" t-field="o.partner_id.vat"/>
                 </div>
 
                 <div style="position: relative; height: 0.8cm;">
-                    <span style="position: absolute; left: 2.5cm; width: 9cm;" t-field="o.partner_id.street"/>
-                    <span style="position: absolute; left: 14.0cm;" t-field="o.origin"/>
+                    <span style="position: absolute; left: 4.5cm; width: 9cm;" t-field="o.partner_id.street"/>
+                    <!-- <span style="position: absolute; left: 2.5cm; width: 9cm;" t-field="o.partner_id.street"/> -->
+                    <!-- <span style="position: absolute; left: 14.0cm;" t-field="o.origin"/> -->
+                    <span style="position: absolute; left: 15.5cm;" t-field="o.origin"/>
                 </div>
 
                 <div style="position: relative; height: 0.8cm;">
-                    <span style="position: absolute; left: 2.5cm; width: 9cm;">
+                    <!-- <span style="position: absolute; left: 2.5cm; width: 9cm;"> -->
+                    <span style="position: absolute; left: 4.5cm; width: 9cm;">
                         <t t-esc="o.partner_id.city"/> 
                         <t t-if="o.partner_id.state_id"> (<t t-esc="o.partner_id.state_id.name"/>)</t>
                     </span>
-                    <span style="position: absolute; left: 14.0cm;" t-field="o.name"/>
+                    <!-- <span style="position: absolute; left: 14.0cm;" t-field="o.name"/> -->
+                    <span style="position: absolute; left: 15.5cm;" t-field="o.name"/>
                 </div>
             </div>
 
-            <div style="position: absolute; top: 10.5cm; left: 0; width: 100%;">
+            <!-- <div style="position: absolute; top: 10.5cm; left: 0; width: 100%;"> -->
+            <div style="position: absolute; top: 11.5cm; left: 0; width: 100%;"
                 <table style="width: 100%; border-collapse: collapse; border: none;">
                     <tbody>
                         <t t-foreach="o.move_ids_without_package" t-as="l">
