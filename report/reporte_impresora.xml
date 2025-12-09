@@ -54,10 +54,13 @@
                         <t t-foreach="o.move_ids_without_package" t-as="l">
                             <tr style="height: 0.6cm; vertical-align: top;"> 
                                 
-                                <td style="width: 5%; text-align: center; padding-left: 5px;">
-                                    <!-- <span style="color: white;">.</span> -->
+                                <!-- <td style="width: 5%; text-align: center; padding-left: 5px;">
+                                    
                                      <span t-field="l.product_id.name"/>
-                                 </td>
+                                 </td> -->
+                                  <td style="width: 5%; text-align: center;">
+                                    <span t-esc="l_index + 1"/>
+                                </td>
 
                                 <td style="width: 10%; text-align: center;">
                                     <span t-esc="l.product_uom_qty" t-options='{"widget": "float", "precision": 0}'/>
